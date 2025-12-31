@@ -1,0 +1,33 @@
+# Edge RAG Configuration for Document Q&A
+# Applied during Edge RAG extension deployment
+
+# Ingestion Settings
+ingestion:
+  mode: high-fidelity          # Optimized for tables and charts
+  language: de                  # German language processing
+  chunk_size: 512              # Balanced for table context
+  chunk_overlap: 64            # Overlap for context continuity
+  preserve_tables: true        # Extract tables as structured data
+  preserve_images: false       # Text-only processing
+
+# Search Configuration
+search:
+  mode: hybrid                 # Combines keyword + semantic
+  semantic_weight: 0.6         # Favor semantic understanding
+  keyword_weight: 0.4          # Support exact term matching
+  max_results: 5               # Top chunks per query
+
+# LLM Configuration
+llm:
+  response_language: de        # Respond in German
+  max_tokens: 1024             # Response length limit
+  temperature: 0.3             # Low temperature for factual answers
+  system_prompt: |
+    Du bist ein hilfreicher Assistent. Beantworte Fragen präzise 
+    und zitiere immer die Quelle (Seitenzahl oder Abschnitt).
+
+# Portal Configuration
+portal:
+  title: "Document Q&A"
+  welcome_message: |
+    Willkommen! Stellen Sie Fragen zu Ihren Dokumenten.

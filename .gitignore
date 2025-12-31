@@ -1,0 +1,22 @@
+# Local outputs
+.localbox-outputs.json
+.edge-rag-outputs.json
+.ingestion-outputs.json
+
+# Environment
+.env
+*.env.local
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Sensitive
+*.pem
+*.key
+secrets/

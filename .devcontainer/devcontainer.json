@@ -1,0 +1,33 @@
+{
+  "name": "Edge RAG LocalBox Demo",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/azure-cli:1": {
+      "installBicep": true
+    },
+    "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+      "kubectl": "latest",
+      "helm": "latest",
+      "minikube": "none"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-bicep",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "ms-vscode.azure-account",
+        "redhat.vscode-yaml",
+        "timonwong.shellcheck"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+  "postCreateCommand": "chmod +x scripts/*.sh && echo '✅ Demo environment ready. Run: az login'",
+  "remoteUser": "vscode"
+}
